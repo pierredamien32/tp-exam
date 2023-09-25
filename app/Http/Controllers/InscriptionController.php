@@ -8,6 +8,14 @@ use Illuminate\Http\Request;
 
 class InscriptionController extends Controller
 {
+
+    public function info(){
+        return view('infoDEC');
+    }
+
+    public function menu(){
+        return view('menuDEC');
+    }
     public function index(){
         $options = Option::all();
         return view('inscriptionDEC', compact('options'));

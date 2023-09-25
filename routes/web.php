@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('indexDEC');
 });
 
-Route::get('/inscription', [InscriptionController::class, 'index']);
+Route::get('/inscription', [InscriptionController::class, 'index'])->name('inscription');
 Route::post('/inscription/store', [InscriptionController::class, 'store'])->name('inscription.store');
 Route::get('/recherche', [InscriptionController::class, 'recherche'])->name('recherche');
+Route::get('/info', [InscriptionController::class, 'info'])->name('info');
+Route::get('/menu', [InscriptionController::class, 'menu'])->name('menu');

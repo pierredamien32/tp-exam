@@ -12,6 +12,7 @@
             <div>
                 <label for="">Dans l'option: </label>
                 <select name="search">
+                    
                     @foreach ($options as $option)
                         <option value="{{$option->id}}">{{ $option->cod_opt }}</option>
                     @endforeach
