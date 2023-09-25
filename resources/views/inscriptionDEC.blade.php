@@ -6,10 +6,16 @@
             <div>
                 <label for="">Nom: </label>
                 <input type="text" name="nom" id="">
+                @error('nom')
+                    <div style="color: red;">{{$message}}</div>
+                @enderror
             </div>
             <div>
                 <label for="">Prénom: </label>
                 <input type="text" name="prenom" id="">
+                @error('prenom')
+                    <div style="color: red;">{{$message}}</div>
+                @enderror
             </div>
             <div>
                 <label for="">Date de naissance: </label>
@@ -30,6 +36,9 @@
                         <option value="{{$option->id}}">{{ $option->cod_opt }}</option>
                     @endforeach
                 </select>
+                @error('option')
+                    <div style="color: red;">{{$message}}</div>
+                @enderror
             </div>
             <div>
                 <button type="reset">Effacer</button>

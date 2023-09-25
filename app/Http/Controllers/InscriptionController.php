@@ -15,6 +15,11 @@ class InscriptionController extends Controller
 
     public function store(Request $request){
         // dd($request->all());
+        $reponse = $request->validate([
+            'nom' => 'required|string',
+            'prenom' => 'required|string',
+            'option' => 'required'
+        ]);
 
         $etudiant= new Etudiant;
 
@@ -24,8 +29,8 @@ class InscriptionController extends Controller
         $etudiant->ville = $request->ville;
         $etudiant->sexe = $request->sexe;
         $etudiant->option_id = $request->option;
-        
+
         $etudiant->save();
-        return 'Enregistrer avec succès';
+        return 'Enregistrement effectué avec succès';
     }
 }
