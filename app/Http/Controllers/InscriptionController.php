@@ -15,7 +15,7 @@ class InscriptionController extends Controller
 
     public function store(Request $request){
         // dd($request->all());
-        $reponse = $request->validate([
+        $reponse=$request->validate([
             'nom' => 'required|string',
             'prenom' => 'required|string',
             'option' => 'required'
@@ -32,5 +32,20 @@ class InscriptionController extends Controller
 
         $etudiant->save();
         return 'Enregistrement effectué avec succès';
+    }
+
+    public function recherche(Request $request){
+
+        // $reponse=$request->validate([
+        //     'search' => 'required'
+        // ]);
+
+        $options = Option::all();
+        $search = $request->search;
+        $etudiants = Etudiant::query()
+                ->where('option_id', 'LIKE', '%' . $search . '%')
+                ->get();
+        // dd('Ok '.$etudiants);
+        return view('rechercheDEC', compact('options','etudiants'));
     }
 }

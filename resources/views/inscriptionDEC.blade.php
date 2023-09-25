@@ -32,6 +32,7 @@
             <div>
                 <label for="">Option: </label>
                 <select name="option">
+                    {{-- <option></option> --}}
                     @foreach ($options as $option)
                         <option value="{{$option->id}}">{{ $option->cod_opt }}</option>
                     @endforeach

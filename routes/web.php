@@ -20,3 +20,4 @@ Route::get('/', function () {
 
 Route::get('/inscription', [InscriptionController::class, 'index']);
 Route::post('/inscription/store', [InscriptionController::class, 'store'])->name('inscription.store');
+Route::get('/recherche', [InscriptionController::class, 'recherche'])->name('recherche');
